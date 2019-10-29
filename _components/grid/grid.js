@@ -3,6 +3,7 @@ let is_mobile;
 
 const init = () => {
   $(() => {
+    console.log("grid");
     if (!$(".grid").length) return;
     set_client_type();
     grid();
