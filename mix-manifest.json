@@ -1,0 +1,15 @@
+{
+    "/_components/accordion/accordion.min.js": "/_components/accordion/accordion.min.js",
+    "/_components/cookie_notice/cookie_notice.min.js": "/_components/cookie_notice/cookie_notice.min.js",
+    "/_components/grid/grid.min.js": "/_components/grid/grid.min.js",
+    "/_components/simple_header/simple_header.min.js": "/_components/simple_header/simple_header.min.js",
+    "/js/main.js": "/js/main.js",
+    "/style.css": "/style.css",
+    "/admin.css": "/admin.css",
+    "/_components/accordion/accordion.min.css": "/_components/accordion/accordion.min.css",
+    "/_components/banner/banner.min.css": "/_components/banner/banner.min.css",
+    "/_components/cookie_notice/cookie_notice.min.css": "/_components/cookie_notice/cookie_notice.min.css",
+    "/_components/post_card/post_card.min.css": "/_components/post_card/post_card.min.css",
+    "/_components/posts_slider/posts_slider.min.css": "/_components/posts_slider/posts_slider.min.css",
+    "/_components/simple_header/simple_header.min.css": "/_components/simple_header/simple_header.min.css"
+}
