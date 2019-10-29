@@ -1,0 +1,56 @@
+.search-results {
+  .fixed-grid-item {
+    background-color: transparent;
+
+    > div {
+      height: 100%;
+      padding: 40px;
+      display: flex;
+
+      .flex-column {
+        align-items: flex-start;
+      }
+
+      @media screen and (max-width: $breakpoint-extra-large) {
+        padding: 20px;
+      }
+
+      p,
+      h3,
+      .button {
+        margin: 0;
+      }
+
+      h3 {
+        @media screen and (max-width: $breakpoint-medium) {
+          font-size: 16px;
+        }
+
+        @media screen and (max-width: $breakpoint-extra-small) {
+          font-size: 24px;
+        }
+      }
+
+      p {
+        color: $color-darker-grey;
+        font-size: 14px;
+
+        @media screen and (max-width: $breakpoint-extra-large) {
+          font-size: 12px;
+        }
+
+        @media screen and (max-width: $breakpoint-large) {
+          display: none;
+        }
+      }
+
+      .button {
+        max-width: 100%;
+
+        @media screen and (max-width: $breakpoint-medium) {
+          padding: 10px 15px;
+        }
+      }
+    }
+  }
+}

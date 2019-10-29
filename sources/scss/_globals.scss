@@ -1,0 +1,55 @@
+html {
+  font-size: 16px;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    font-size: 14px;
+  }
+}
+
+.background-image {
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: ease all 0.3s;
+  background-color: $color-light-grey;
+
+  img {
+    width: 100%;
+    transition: ease all 0.3s;
+    display: none;
+
+    @supports (object-fit: cover) {
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      height: 100%;
+    }
+  }
+}
+
+main {
+  position: relative;
+  display: block;
+}
+
+section,
+article {
+  padding-top: 20px;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    padding-top: 10px;
+  }
+
+  &.container {
+    padding-top: 20px;
+
+    @media screen and (max-width: $breakpoint-medium) {
+      padding-top: 10px;
+    }
+  }
+}
+
+article section.container {
+  padding: 0;
+}

@@ -1,0 +1,12 @@
+.about-director {
+  .text-section.flex.flex-row,
+  .text-section.flex.flex-row-reverse {
+    @media screen and (max-width: $breakpoint-small) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .image-grid {
+    min-height: 350px;
+  }
+}

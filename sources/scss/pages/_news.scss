@@ -1,0 +1,37 @@
+.subscription-banner {
+  .container > .flex.flex-row {
+    @media screen and (max-width: $breakpoint-medium) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .usp {
+      @media screen and (max-width: $breakpoint-medium) {
+        padding: 0;
+        width: 100%;
+      }
+
+      &:first-of-type {
+        @media screen and (max-width: $breakpoint-medium) {
+          margin-bottom: 10px;
+        }
+
+        svg {
+          @media screen and (max-width: $breakpoint-extra-small) {
+            width: 50px;
+          }
+        }
+
+        div {
+          @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+            display: none;
+          }
+
+          @media screen and (max-width: $breakpoint-extra-small) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

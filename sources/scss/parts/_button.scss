@@ -1,0 +1,93 @@
+// Imports variables and functions from theme
+// -------------------------
+
+@import "../../sources/scss/_variables";
+
+.button,
+.frm_button_submit {
+  transition: ease all 0.3s;
+  font-size: 16px;
+  padding: 20px 25px;
+  text-decoration: none;
+  background-color: $color-red;
+  color: $color-white;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  background-image: linear-gradient(90deg, lighten($color-red, 10%));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: 0% 50%;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: $breakpoint-small) {
+    padding: 10px 15px;
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-red;
+    background-size: 100% 100%;
+
+    @media (hover: none) {
+      background-size: 0% 100%;
+    }
+  }
+
+  &.smaller {
+    display: inline-block;
+    width: auto;
+    min-width: 200px;
+    padding: 10px 15px;
+
+    @media screen and (max-width: $breakpoint-small) {
+      width: 100%;
+    }
+  }
+
+  .button-icon {
+    position: relative;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    overflow: hidden;
+    margin-right: 20px;
+
+    @media screen and (max-width: $breakpoint-small) {
+      height: 16px;
+      width: 16px;
+    }
+
+    img {
+      width: 100%;
+      @supports (object-fit: cover) {
+        object-fit: contain;
+        object-position: center;
+        height: 100%;
+      }
+    }
+  }
+
+  &.yellow {
+    background-color: $color-yellow;
+    color: $color-white;
+    background-image: linear-gradient(90deg, lighten($color-yellow, 10%));
+
+    &:hover,
+    &:focus {
+      background-color: $color-yellow;
+    }
+  }
+}

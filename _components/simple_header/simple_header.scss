@@ -1,0 +1,412 @@
+// Imports variables and functions from theme
+// -------------------------
+
+@import "../../sources/scss/_variables";
+#menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  background-color: $color-white;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    background-color: $color-light-grey;
+  }
+
+  .nav-wrap {
+    padding: 20px 0;
+    box-shadow: 0px 3px 12px rgba($color-black, 0.1);
+    transition: ease all 0.3s;
+
+    @media screen and (max-width: $breakpoint-medium) {
+      padding-bottom: 0;
+    }
+
+    @media screen and (max-width: $breakpoint-extra-small) {
+      padding-top: 10px;
+    }
+
+    > .container {
+      @media screen and (max-width: $breakpoint-medium) {
+        padding: 0;
+      }
+
+      > .flex.flex-row {
+        @media screen and (max-width: $breakpoint-medium) {
+          flex-direction: row-reverse;
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    .logo {
+      display: block;
+      height: 50px;
+      transition: ease all 0.3s;
+
+      @media screen and (max-width: $breakpoint-large) {
+        height: 45px;
+      }
+
+      @media screen and (max-width: $breakpoint-medium) {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      @media screen and (max-width: $breakpoint-extra-small) {
+        height: 35px;
+      }
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .burger {
+      margin-right: 10px;
+      padding: 10px;
+      display: none;
+      cursor: pointer;
+
+      @media screen and (max-width: $breakpoint-medium) {
+        display: block;
+        padding-right: 0;
+      }
+
+      .burger-wrap {
+        position: relative;
+        width: 30px;
+        height: 22px;
+        display: inline-block;
+
+        .burger-part {
+          border-bottom: 2px solid $color-darker-grey;
+          width: 100%;
+          position: absolute;
+          left: 0;
+          right: 0;
+          -webkit-transition: 0.3s ease all;
+          transition: 0.3s ease all;
+          transform-origin: left center;
+
+          &:nth-child(1) {
+            top: 0;
+          }
+
+          &:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          &:nth-child(3) {
+            bottom: 0;
+          }
+        }
+      }
+    }
+
+    nav {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      overflow: hidden;
+      transition: ease all 0.5s;
+
+      @media screen and (max-width: $breakpoint-medium) {
+        flex-basis: 100%;
+        flex-direction: column-reverse;
+        background-color: $color-light-grey;
+        margin-top: 20px;
+        max-height: 0;
+      }
+
+      @media screen and (max-width: $breakpoint-extra-small) {
+        margin-top: 10px;
+      }
+
+      .menu-main-navigation-container {
+        @media screen and (max-width: $breakpoint-medium) {
+          width: 100%;
+          padding: 10px 0;
+        }
+      }
+
+      ul {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+
+        @media screen and (max-width: $breakpoint-medium) {
+          flex-direction: column;
+        }
+
+        li {
+          display: block;
+          transition: ease all 0.3s;
+
+          &:hover {
+            opacity: 0.7;
+          }
+
+          a {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: $color-darker-grey;
+
+            @media screen and (max-width: $breakpoint-extra-large) {
+              padding: 10px;
+            }
+
+            @media screen and (max-width: $breakpoint-large) {
+              font-size: 16px;
+            }
+
+            @media screen and (max-width: $breakpoint-medium) {
+              display: block;
+              text-align: center;
+            }
+          }
+
+          &.current-menu-item {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    #search-button {
+      position: relative;
+      height: 100%;
+      padding: 10px 20px;
+      cursor: pointer;
+      stroke: $color-red;
+      fill: transparent;
+
+      @media screen and (max-width: $breakpoint-large) {
+        padding: 10px;
+      }
+
+      @media screen and (max-width: $breakpoint-medium) {
+        display: none;
+      }
+
+      svg {
+        transform: scale(0.8);
+
+        @media screen and (max-width: $breakpoint-large) {
+          transform: scale(0.6);
+        }
+      }
+    }
+
+    #search-box {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      right: 0;
+      top: 0;
+      display: none;
+      opacity: 0;
+      background-color: $color-white;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 50px;
+
+      @media screen and (max-width: $breakpoint-large) {
+        padding-right: 40px;
+      }
+
+      @media screen and (max-width: $breakpoint-medium) {
+        display: flex;
+        opacity: 1;
+        position: relative;
+        padding: 20px 0;
+        background-color: $color-red;
+        padding-right: 0;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media screen and (max-width: $breakpoint-extra-small) {
+        padding: 10px 0;
+      }
+
+      &.active {
+        display: flex;
+      }
+
+      svg {
+        stroke: $color-red;
+        fill: transparent;
+        position: absolute;
+        right: 0;
+        top: calc(50% - 5px);
+        transform: scale(0.6) translateY(-50%);
+        cursor: pointer;
+        right: 22px;
+
+        @media screen and (max-width: $breakpoint-large) {
+          right: 13px;
+        }
+
+        &#close-search-box {
+          @media screen and (max-width: $breakpoint-medium) {
+            display: none;
+          }
+        }
+      }
+
+      .search-box-form-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        border-bottom: 1px solid $color-red;
+
+        @media screen and (max-width: $breakpoint-medium) {
+          max-width: 100%;
+        }
+
+        svg {
+          stroke: $color-red;
+          fill: transparent;
+          position: absolute;
+          right: 0;
+          top: calc(50% - 5px);
+          transform: scale(0.6) translateY(-50%);
+
+          @media screen and (max-width: $breakpoint-medium) {
+            stroke: $color-white;
+            right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  #menu-actions {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: $color-red;
+    color: $color-white;
+    padding-right: calc(50vw - #{$container-width / 2} + 20px);
+
+    @media screen and (max-width: $container-width) {
+      padding-right: 20px;
+    }
+
+    @media screen and (max-width: $breakpoint-medium) {
+      width: 100%;
+      text-align: center;
+      padding-right: 0;
+    }
+
+    a {
+      padding: 20px;
+      display: inline-block;
+
+      @media screen and (max-width: $breakpoint-small) {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      &:first-of-type {
+        font-weight: bold;
+      }
+    }
+  }
+
+  + main {
+    margin-top: 89px;
+
+    @media screen and (max-width: $breakpoint-medium) {
+      margin-top: 147px;
+
+      &::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: ease all 0.3s;
+      }
+    }
+
+    @media screen and (max-width: $breakpoint-small) {
+      margin-top: 124px;
+    }
+
+    @media screen and (max-width: $breakpoint-extra-small) {
+      margin-top: 101px;
+    }
+  }
+
+  &.scrolled {
+    .logo {
+      height: 45px;
+
+      @media screen and (max-width: $breakpoint-large) {
+        height: 40px;
+      }
+    }
+
+    .nav-wrap {
+      padding: 10px 0;
+    }
+  }
+
+  &.active {
+    @media screen and (max-width: $breakpoint-medium) {
+      .burger .burger-wrap .burger-part {
+        &:nth-child(1) {
+          top: 50%;
+          left: 50%;
+          transform: rotate(45deg) translate(-50%);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          top: 50%;
+          left: 50%;
+          bottom: 50%;
+          transform: rotate(-45deg) translate(-50%);
+        }
+      }
+
+      nav {
+        max-height: calc(100vh - 85px);
+      }
+
+      + main::after {
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.single-post #menu-item-449,
+.machines-template-default #menu-item-460,
+.occasions-template-default #menu-item-448,
+.verpakkingen-template-default #menu-item-441 {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+  div.asl_r.vertical {
+    display: none !important;
+  }
+}
