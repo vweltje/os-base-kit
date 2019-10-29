@@ -2,7 +2,7 @@
   "name": "os-base-kit",
   "version": "1.0.0",
   "description": "Wordpress default theme & components for [Oddessey Solutions](http://oddesseysolutions.nl).",
-  "main": "_gulpfile.js",
+  "main": "webpack.mix.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/vweltje/os-base-kit.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vincent Weltje",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vweltje/os-base-kit/issues"
@@ -26,6 +26,9 @@
     "sass": "^1.23.1",
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
   },
   "browserslist": [
     "> 1%",
