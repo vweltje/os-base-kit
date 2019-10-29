@@ -1,4 +1,6 @@
-const init = () => {};
+const init = () => {
+  console.log("ksggg");
+};
 
 // Document ready
 $(() => {

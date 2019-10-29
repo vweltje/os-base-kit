@@ -12,57 +12,46 @@ let mix = require("laravel-mix"),
  |
  */
 
-const component_assets = () => {
+const get_component_scripts = () => {
   const relative_path = "_components/",
     components = fs.readdirSync(relative_path);
+  let files = [];
   components.forEach(component => {
     const path = `${relative_path}${component}/${component}`;
-    if (fs.existsSync(`${path}.scss`)) {
-      mix.sass(
-        `${path}.scss`,
-        `${relative_path}${component}/${component}.min.css`,
-        {
-          sassOptions: {
-            outputStyle: "compressed"
-          }
-        }
-      );
-    }
     if (fs.existsSync(`${path}.js`)) {
-      mix.js(`${path}.js`, `${relative_path}${component}/${component}.min.js`);
+      files.push(`${path}.js`);
     }
   });
+  return files;
 };
 
-mix.options({
-  processCssUrls: false,
-  postCss: [
-    require("autoprefixer")({
-      grid: true
-    })
-  ],
-  uglify: {
-    uglifyOptions: {
-      compress: true
-    }
-  }
-});
 mix
-  .js("sources/js/main.js", "js")
-  .sass("sources/scss/style.scss", "", {
-    sassOptions: {
-      outputStyle: "compressed"
+  .options({
+    processCssUrls: false,
+    postCss: [
+      require("autoprefixer")({
+        grid: true
+      })
+    ],
+    uglify: {
+      uglifyOptions: {
+        compress: true
+      }
     }
   })
-  .sass("sources/scss/admin.scss", "", {
-    sassOptions: {
-      outputStyle: "compressed"
-    }
-  });
-mix.sourceMaps();
-mix.disableSuccessNotifications();
-
-component_assets();
+  .sourceMaps(true, "source-map");
+mix.js([...get_component_scripts(), "sources/js/main.js"], "js/main.js");
+mix.sass("sources/scss/style.scss", "style.css", {
+  sassOptions: {
+    outputStyle: "compressed"
+  }
+});
+mix.sass("sources/scss/admin.scss", "admin.css", {
+  sassOptions: {
+    outputStyle: "compressed"
+  }
+});
+// mix.disableSuccessNotifications();
 
 // Full API
 // mix.js(src, output);

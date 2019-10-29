@@ -23,6 +23,14 @@ Version: 1.0
 @import "pages/search";
 @import "pages/news";
 
+// Components
+@import "../../_components/accordion/accordion.scss";
+@import "../../_components/banner/banner.scss";
+@import "../../_components/cookie_notice/cookie_notice.scss";
+@import "../../_components/post_card/post_card.scss";
+@import "../../_components/posts_slider/posts_slider.scss";
+@import "../../_components/simple_header/simple_header.scss";
+
 // Parts
 @import "parts/footer";
 @import "parts/button";
