@@ -4,11 +4,9 @@ function acf_keyboardshortcuts() { ?>
 	<script type="text/javascript">
 	console.log(`
 		---
-
 		ACF keyboard shortcuts:
 		A   – new field
 		ESC – close field
-
 		---
 		`)
 		document.addEventListener('keydown', (e) => {

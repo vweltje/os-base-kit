@@ -1,6 +1,8 @@
 "use_strict";
 
-const init = () => {};
+const init = () => {
+  console.log("js");
+};
 
 // Document ready
 $(() => {
