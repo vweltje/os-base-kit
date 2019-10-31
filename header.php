@@ -34,7 +34,7 @@
 
 <body <?php body_class()?>>
 	<?php
-	get_template_part('inc-edit');
+	get_template_part('parts/inc-edit');
 	new Component('simple_header', array());
 	?>
 	<main>

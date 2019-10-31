@@ -51,7 +51,7 @@ mix.sass("sources/scss/admin.scss", "admin.css", {
     outputStyle: "compressed"
   }
 });
-// mix.disableSuccessNotifications();
+mix.disableSuccessNotifications();
 
 // Full API
 // mix.js(src, output);
