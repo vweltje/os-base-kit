@@ -1,36 +1,30 @@
-<?php /**
-* Theme for button
-*
-* @package Component
+<?php
+/**
+* Button
 */
 
-/**
-* List of custom argruments
-*
-*/
-$custom_args = array();
+class Button {
 
-/**
-* button
-*
-* Gets HTML for this specific component
-*
-* @param    (array)       All arguments for the component
-* @return   (string)      HTML of this compnent
-*/
-if (!function_exists('button')) {
-  function button(array $args)
-  {
-    $button = $args['acf_content'];
-    $classes = !empty($args['classes']) ? ' ' . $args['classes'] : '';
-    ob_start(); ?>
-    <a class="button<?= $classes ?>" href="<?= $button['link']['url'] ?>" title="<?= $button['link']['title'] ?>" target="<?= $button['link']['target'] ?>">
-      <?php if (isset($button['icon']) && is_array($button['icon'])) : ?>
+  private $data = array(
+    'classes' => ''
+  );
+
+  public function __construct(array $args) {
+    $this->data = $args;
+    echo $this->get_html();
+  }
+
+  private function get_html() {
+    ob_start();
+    $classes = !empty($this->data['classes']) ? ' ' . $this->data['classes'] : '';
+    ?>
+    <a class="button<?= $classes ?>" href="<?= $this->data['link']['url'] ?>" title="<?= $this->data['link']['title'] ?>" target="<?= $this->data['link']['target'] ?>">
+      <?php if (isset($this->data['icon']) && is_array($this->data['icon'])) : ?>
         <div class="button-icon">
-          <img src="<?= $button['icon']['sizes']['400w'] ?>" alt="<?= $button['icon']['alt'] ?>" title="<?= $button['icon']['title'] ?>"/>
+          <img src="<?= $this->data['icon']['sizes']['400w'] ?>" alt="<?= $this->data['icon']['alt'] ?>" title="<?= $this->data['icon']['title'] ?>"/>
         </div>
       <?php endif ?>
-      <?= $button['text'] ?>
+      <?= $this->data['text'] ?>
     </a>
     <?php return ob_get_clean();
   }
