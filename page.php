@@ -15,11 +15,7 @@
 */
 
 get_header();
+?>
 
-global $post;
 
-if (in_array($post->post_type, array('machines', 'verpakkingen', 'occasions'))) {
-  require_once('page-detail.php');
-} else {
-  require_once('page-default.php');
-}
+<?php get_footer(); ?>

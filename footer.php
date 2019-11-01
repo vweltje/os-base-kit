@@ -20,8 +20,8 @@
 </footer>
 
 <?php
-wp_footer(); // Wordpress task bar
 new Component('Cookie_notice');
+wp_footer(); // Wordpress task bar
 ?>
 
 </body> <?php // openingtag in header.php ?>

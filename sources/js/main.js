@@ -1,10 +1,20 @@
 "use_strict";
 
 const init = () => {
-  console.log("js");
+  define_globals();
+  $(() => {
+    // Document ready
+  });
 };
 
-// Document ready
-$(() => {
-  init();
-});
+const define_globals = () => {
+  window.breakpoint = {
+    extra_small: 450,
+    small: 768,
+    medium: 992,
+    large: 1200,
+    extra_large: 1440
+  };
+};
+
+init();

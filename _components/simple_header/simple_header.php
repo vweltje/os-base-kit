@@ -1,57 +1,60 @@
 <?php
-
 /**
-* Theme for simple_header
-*
-* @package Component
+* Simple_header
 */
 
-/**
-* List of custom argruments
-*
-* @var    array
-*/
-$custom_args = array();
+class Simple_header {
 
-/**
-* simple_header
-*
-* Gets HTML for this specific component
-*
-* @param    (array)       All arguments for the component
-* @return   (string)      HTML of this compnent
-*/
-if (!function_exists('simple_header')) {
-  function simple_header(array $args)
-  {
-    $logo = get_field('logo', 'option');
-    $contact = get_field('contact_information', 'option');
+  public function __construct(array $args) {
+    echo $this->get_html();
+  }
+
+  private function get_html() {
     ob_start();?>
-
     <header id="menu">
       <div class="nav-wrap">
         <div class="container">
           <div class="flex flex-row">
-            <a href="<?= get_home_url() ?>" class="logo">
-              <img src="<?= $logo['url'] ?>" alt="<?= $logo['alt'] ?>">
-            </a>
-            <div class="burger">
-              <div class="burger-wrap">
-                <div class="burger-part"></div>
-                <div class="burger-part"></div>
-                <div class="burger-part"></div>
-              </div>
-            </div>
-            <nav>
-              <?php wp_nav_menu(array(
-                'menu' => 'Main navigation'
-              )); ?>
-            </nav>
+            <?php
+            echo $this->get_logo_html();
+            echo $this->get_burger_button_html();
+            echo $this->get_nav_html();
+            ?>
           </div>
         </div>
       </div>
     </header>
+    <?php return ob_get_clean();
+  }
 
+  private function get_logo_html() {
+    $logo = get_field('logo', 'option');
+    ob_start();?>
+    <a href="<?= get_home_url() ?>" class="logo">
+      <img src="<?= $logo['url'] ?>" alt="<?= $logo['alt'] ?>">
+    </a>
+    <?php return ob_get_clean();
+  }
+
+  private function get_burger_button_html() {
+    ob_start();?>
+    <div class="burger">
+      <div class="burger-wrap">
+        <div class="burger-part"></div>
+        <div class="burger-part"></div>
+        <div class="burger-part"></div>
+      </div>
+    </div>
+    <?php return ob_get_clean();
+  }
+
+  private function get_nav_html() {
+    ob_start();?>
+    <nav>
+      <?php wp_nav_menu(array(
+        'menu' => 'Main navigation'
+      )); ?>
+    </nav>
     <?php return ob_get_clean();
   }
 }
