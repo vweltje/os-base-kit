@@ -19,11 +19,18 @@
 class Component {
 
   /**
+  * Path to reqiested component
+  *
+  * @var	string
+  */
+  private $cp_path = '';
+
+  /**
   * Name of the reqiested component
   *
   * @var	string
   */
-  protected $cp_name = '';
+  private $cp_name = '';
 
   /**
   * __construct
@@ -70,7 +77,7 @@ class Component {
   * @param    (string)      name of the requested component
   * @return   (string)      Path to specific component file
   */
-  private static function get_cp_dir_path($cp_name) {
+  private function get_cp_dir_path($cp_name) {
     return (get_stylesheet_directory() . '/_components/' . $cp_name);
   }
 }
