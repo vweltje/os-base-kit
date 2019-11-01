@@ -3,14 +3,14 @@
 /**
 * Component loader
 *
-* This class loads a component into the HTML, if required it adds in the styling and required scripts to get the component working proporley.
+* This class loads a component into the HTML.
 *
 * Include this file into yout functions.php
-* Use this class in your theme as following: new component( 'component_name', array( 'acf_content' => array() ));
+* Use this class in your theme as following: new Component( 'Component_name', $args);
 *
 * Extrended version:
 * $args = array();
-* new component( 'Component_name', $args);
+* new Component( 'Component_name', $args);
 *
 * @package Component
 * @author Vincent Weltje @ Oddessey Solutions
