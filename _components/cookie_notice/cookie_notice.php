@@ -1,31 +1,18 @@
-<?php /**
-* Theme for cookie_notice
-*
-* @package Component
+<?php
+/**
+* Cookie notice
 */
 
-/**
-* List of custom argruments
-*
-*/
-$custom_args = array();
-
-/**
-* cookie_notice
-*
-* Gets HTML for this specific component
-*
-* @param    (array)       All arguments for the component
-* @return   (string)      HTML of this compnent
-*/
-if (!function_exists('cookie_notice')) {
-  function cookie_notice(array $args)
-  {
-    ob_start();
+class Cookie_notice {
+  public function __construct() {
     if (isset($_COOKIE['os-base-theme-cookie-statement']) && $_COOKIE['os-base-theme-cookie-statement'] === 'accepted') {
       return;
     }
-    ?>
+    echo $this->get_html();
+  }
+
+  private function get_html() {
+    ob_start();?>
 
     <div id="cookie-notice">
       <div class="container">
@@ -38,4 +25,6 @@ if (!function_exists('cookie_notice')) {
 
     <?php return ob_get_clean();
   }
-}?>
+}
+
+?>

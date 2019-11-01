@@ -25,6 +25,9 @@ const get_component_scripts = () => {
   return files;
 };
 
+mix.autoload({
+  jquery: ["$", "window.jQuery", "jQuery"]
+});
 mix
   .options({
     processCssUrls: false,

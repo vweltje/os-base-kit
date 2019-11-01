@@ -1,22 +1,31 @@
-function create_cookie(name, value, days) {
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    var expires = "; expires=" + date.toGMTString();
-  } else {
-    var expires = "";
+class Cookie_notice {
+  constructor() {
+    $(() => {
+      this.on_cookie_agree();
+    });
   }
-  document.cookie = name + "=" + value + expires + "; path=/";
+
+  on_cookie_agree() {
+    $("#cookie-notice-agree").on("click", e => {
+      e.preventDefault();
+      this.create_cookie("os-base-theme-cookie-statement", "accepted", 365);
+      $("#cookie-notice").slideUp({
+        complete: () => {
+          $("#cookie-notice").remove();
+        }
+      });
+    });
+  }
+
+  create_cookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      expires = `; expires=${date.toGMTString()}`;
+    }
+    document.cookie = `${name}=${value}${expires}; path=/`;
+  }
 }
 
-$(function() {
-  $("#cookie-notice-agree").on("click", function(e) {
-    e.preventDefault();
-    create_cookie("os-base-theme-cookie-statement", "accepted", 365);
-    $("#cookie-notice").slideUp({
-      complete: function() {
-        $("#cookie-notice").remove();
-      }
-    });
-  });
-});
+new Cookie_notice();

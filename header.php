@@ -27,7 +27,6 @@
 	<meta name="theme-color" content="#ffffff">
 
 	<?php
-	Component::create_assets();
 	wp_head();
 	?>
 </head>
@@ -35,6 +34,6 @@
 <body <?php body_class()?>>
 	<?php
 	get_template_part('parts/inc-edit');
-	new Component('simple_header', array());
+	// new Component('simple_header', array());
 	?>
 	<main>
