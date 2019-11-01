@@ -1,0 +1,131 @@
+[
+  {
+    "key": "group_5d9f141dee70d",
+    "title": "_flexible_content",
+    "fields": [
+      {
+        "key": "field_5d9f143e4f215",
+        "label": "Flexible content",
+        "name": "flexible_content",
+        "type": "flexible_content",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layouts": {
+          "layout_5d9f1447ef72b": {
+            "key": "layout_5d9f1447ef72b",
+            "name": "text_block",
+            "label": "Text block",
+            "display": "row",
+            "sub_fields": [
+              {
+                "key": "field_5d9f148f4f216",
+                "label": "Text",
+                "name": "text",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+              }
+            ],
+            "min": "",
+            "max": ""
+          },
+          "layout_5d9f15054f218": {
+            "key": "layout_5d9f15054f218",
+            "name": "inline_media",
+            "label": "Inline media",
+            "display": "row",
+            "sub_fields": [
+              {
+                "key": "field_5dbc49b2f71dc",
+                "label": "_Inline_media",
+                "name": "_inline_media",
+                "type": "clone",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "clone": ["group_5dbc48dfe064f"],
+                "display": "seamless",
+                "layout": "block",
+                "prefix_label": 0,
+                "prefix_name": 0
+              }
+            ],
+            "min": "",
+            "max": ""
+          },
+          "layout_5da464b54e44b": {
+            "key": "layout_5da464b54e44b",
+            "name": "accordion",
+            "label": "Accordion",
+            "display": "row",
+            "sub_fields": [
+              {
+                "key": "field_5da464cd4e44c",
+                "label": "_Accordion",
+                "name": "_accordion",
+                "type": "clone",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "clone": ["group_5923827f74734"],
+                "display": "seamless",
+                "layout": "block",
+                "prefix_label": 0,
+                "prefix_name": 0
+              }
+            ],
+            "min": "",
+            "max": ""
+          }
+        },
+        "button_label": "Add item",
+        "min": "",
+        "max": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "post"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": ""
+  }
+]
