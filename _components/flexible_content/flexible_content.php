@@ -1,52 +1,28 @@
-<?php /**
-* Theme for flexible_content
-*
-* @package Component
+<?php
+/**
+* Flexible_content
 */
 
-/**
-* List of custom argruments
-*
-*/
-$custom_args = array();
+class Flexible_content {
 
-/**
-* flexible_content
-*
-* Gets HTML for this specific component
-*
-* @param    (array)       All arguments for the component
-* @return   (string)      HTML of this compnent
-*/
-if (!function_exists('flexible_content')) {
-  function flexible_content(array $args)
-  {
-    ob_start();
-    if (empty($args['acf_content'])) return;
-    $sections = $args['acf_content'];
+  /**
+  * List of flexible components
+  *
+  * @var	array
+  */
+  private $flex_components = array(
+    'accordion',
+  );
+
+  public function __construct(array $args) {
+    $sections = $args;
     foreach ($sections as $section) {
-
-      switch ($section['acf_fc_layout']) {
-        case 'accordion':
-        new Component('accordion', array('acf_content' => $section));
-        break;
-        case 'text_block':
-        new Component('text_block', array('acf_content' => $section['text']));
-        break;
-        case 'image_block':
-        new Component('image_block', array('acf_content' => $section));
-        break;
-        case 'inline_images':
-        ?><section><?php
-        new Component('inline_images', array('acf_content' => $section));
-        ?></section><?php
-        break;
-        default:
-        echo("Component does not exist");
-        break;
+      $component_name = strtolower($section['acf_fc_layout']);
+      if (in_array($component_name, $flex_components)) {
+        new Component(ucfirst($component_name), $section);
+      } else {
+        echo "Component does not exist";
       }
     }
-
-    return ob_get_clean();
   }
 }
