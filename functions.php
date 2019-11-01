@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once('_functions/_cp_loader.php');
+require_once('_functions/_component_loader.php');
 require_once('_functions/helpers.php');
 require_once('_functions/default.php');
 require_once('_functions/admin.php');

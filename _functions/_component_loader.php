@@ -23,14 +23,14 @@ class Component {
   *
   * @var	string
   */
-  private $cp_path = '';
+  private $component_path = '';
 
   /**
   * Name of the reqiested component
   *
   * @var	string
   */
-  private $cp_name = '';
+  private $component_name = '';
 
   /**
   * __construct
@@ -41,43 +41,43 @@ class Component {
   * @param    (array)       all arguments for the component
   * @return   (string)      HTML for requested component
   */
-  public function __construct(string $cp_name = '', array $args = array()) {
-    if (empty($cp_name)) {
+  public function __construct(string $component_name = '', array $args = array()) {
+    if (empty($component_name)) {
       trigger_error('Please supply a component name.');
     }
-    $this->cp_path = $this->get_cp_dir_path($cp_name);
-    if (!file_exists($this->cp_path) || !is_dir($this->cp_path)) {
-      trigger_error("No component found with the name you supplied name: '$cp_name'");
+    $this->component_path = $this->get_component_directory_path($component_name);
+    if (!file_exists($this->component_path) || !is_dir($this->component_path)) {
+      trigger_error("No component found with the name you supplied name: '$component_name'");
     }
-    $this->cp_name = $cp_name;
-    if (!class_exists($cp_name)) {
-      require_once($this->get_cp_file_path('php'));
+    $this->component_name = $component_name;
+    if (!class_exists($component_name)) {
+      require_once($this->get_component_file_path('php'));
     }
-    return new $cp_name($args);
+    return new $component_name($args);
   }
 
   /**
-  * Get_cp_file_path
+  * Get_component_file_path
   *
   * Helps to get the component file path
   *
   * @param    (string)      The file extension of the file you want to get
   * @return   (string)      Path to specific component file
   */
-  private function get_cp_file_path() {
-    $path = $this->cp_path . '/' . $this->cp_name . '.php';
+  private function get_component_file_path() {
+    $path = $this->component_path . '/' . $this->component_name . '.php';
     return (file_exists($path) && !is_dir($path)) ? $path : false;
   }
 
   /**
-  * Get_cp_dir_path
+  * Get_component_directory_path
   *
   * Helps to get the component file path
   *
   * @param    (string)      name of the requested component
   * @return   (string)      Path to specific component file
   */
-  private function get_cp_dir_path($cp_name) {
-    return (get_stylesheet_directory() . '/_components/' . $cp_name);
+  private function get_component_directory_path($component_name) {
+    return (get_stylesheet_directory() . '/_components/' . $component_name);
   }
 }
