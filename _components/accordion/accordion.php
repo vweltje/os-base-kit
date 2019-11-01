@@ -1,6 +1,6 @@
 <?php
 /**
-* Cookie notice
+* Accordion
 */
 
 class Accordion {
@@ -23,9 +23,6 @@ class Accordion {
     $this->items = $args['items'];
     if (isset($args['show_item']) && is_numeric($args['show_item'])) {
       $this->show_item = $args['show_item'];
-    }
-    if (isset($_COOKIE['os-base-theme-cookie-statement']) && $_COOKIE['os-base-theme-cookie-statement'] === 'accepted') {
-      return;
     }
     echo $this->get_html();
   }
