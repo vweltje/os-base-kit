@@ -6,26 +6,26 @@ Author URI: https://oddesseysolutions.nl
 Description: Boilerplate for custom theme development with Advanced Custom Fields (ACF) & Custom Post Type UI (CPT)
 Version: 1.0
 */
-
 @import "reset";
 @import "variables";
-@import "typography";
 @import "globals";
+@import "typography";
 @import "utility";
 
 // Pages
-@import "pages/home";
-@import "pages/contact";
 @import "pages/about";
+@import "pages/contact";
 @import "pages/four04";
+@import "pages/home";
 @import "pages/search";
 
 // Components
-@import "components/accordion.scss";
-@import "components/cookie_notice.scss";
-@import "components/simple_header.scss";
+@import "components/accordion";
+@import "components/button";
+@import "components/cookie_notice";
+@import "components/inline_media";
+@import "components/simple_header";
 
 // Parts
 @import "parts/edit_page";
 @import "parts/footer";
-@import "parts/button";

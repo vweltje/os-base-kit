@@ -12,6 +12,7 @@ class Flexible_content {
   */
   private $flex_components = array(
     'accordion',
+    'inline_media'
   );
 
   public function __construct(array $args) {
