@@ -12,18 +12,18 @@ let mix = require("laravel-mix"),
  |
  */
 
-const get_component_scripts = () => {
-  const relative_path = "_components/",
-    components = fs.readdirSync(relative_path);
-  let files = [];
-  components.forEach(component => {
-    const path = `${relative_path}${component}/${component}`;
-    if (fs.existsSync(`${path}.js`)) {
-      files.push(`${path}.js`);
-    }
-  });
-  return files;
-};
+// const get_component_scripts = () => {
+//   const relative_path = "_components/",
+//     components = fs.readdirSync(relative_path);
+//   let files = [];
+//   components.forEach(component => {
+//     const path = `${relative_path}${component}/${component}`;
+//     if (fs.existsSync(`${path}.js`)) {
+//       files.push(`${path}.js`);
+//     }
+//   });
+//   return files;
+// };
 
 mix.autoload({
   jquery: ["$", "window.jQuery", "jQuery"]
@@ -43,7 +43,8 @@ mix
     }
   })
   .sourceMaps(true, "source-map");
-mix.js([...get_component_scripts(), "sources/js/main.js"], "js/main.js");
+// mix.js([...get_component_scripts(), "sources/js/main.js"], "js/main.js");
+mix.js("sources/js/main.js", "js/main.js");
 mix.sass("sources/scss/style.scss", "style.css", {
   sassOptions: {
     outputStyle: "compressed"

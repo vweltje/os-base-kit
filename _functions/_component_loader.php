@@ -78,6 +78,6 @@ class Component {
   * @return   (string)      Path to specific component file
   */
   private function get_component_directory_path($component_name) {
-    return (get_stylesheet_directory() . '/_components/' . $component_name);
+    return (get_stylesheet_directory() . '/_components');
   }
 }

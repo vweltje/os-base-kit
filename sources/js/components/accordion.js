@@ -1,8 +1,6 @@
-class Accordeon {
+export default class Accordion {
   constructor() {
-    $(() => {
-      this.handle_click();
-    });
+    this.handle_click();
   }
 
   handle_click() {
@@ -61,5 +59,3 @@ class Accordeon {
     }
   }
 }
-
-new Accordeon();

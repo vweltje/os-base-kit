@@ -36,7 +36,10 @@ class Accordion {
         <div class="accordion-item <?= $aditional_show_item ?>">
           <p class="wrap accordion-item-head">
             <?= $item['title'] ?>
-            <?php include('plus-icon.svg') ?>
+            <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            	<path id="vertical" class="st0" d="M10 0v20"/>
+            	<path id="horizontal" class="st0" d="M20 10H0"/>
+            </svg>
           </p>
           <div class="wrap accordion-item-content">
             <?= $item['content'] ?>

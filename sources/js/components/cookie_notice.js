@@ -1,8 +1,6 @@
-class Cookie_notice {
+export default class cookie_notice {
   constructor() {
-    $(() => {
-      this.on_cookie_agree();
-    });
+    this.on_cookie_agree();
   }
 
   on_cookie_agree() {
@@ -27,5 +25,3 @@ class Cookie_notice {
     document.cookie = `${name}=${value}${expires}; path=/`;
   }
 }
-
-new Cookie_notice();

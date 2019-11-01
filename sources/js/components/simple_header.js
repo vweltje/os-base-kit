@@ -1,14 +1,10 @@
-const breakpoint_medium = 992;
-class Simple_header {
+export default class simple_header {
   constructor() {
-    $(() => {
-      this.set_client_type();
-      this.animate();
-    });
+    this.set_client_type();
+    this.animate();
   }
 
   set_client_type() {
-    console.log(window.breakpoint);
     this.is_desktop = $(window).width() >= window.breakpoint.medium;
     $(window).on("resize", () => {
       this.is_desktop = $(window).width() >= window.breakpoint.medium;
@@ -28,5 +24,3 @@ class Simple_header {
     else $("#menu").removeClass("scrolled");
   }
 }
-
-new Simple_header();
