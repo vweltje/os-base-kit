@@ -1,8 +1,8 @@
 {
     "/js/main.js": "/js/main.js",
+    "/style.css": "/style.css",
     "/admin.css": "/admin.css",
     "/js/main.js.map": "/js/main.js.map",
-    "/admin.css.map": "/admin.css.map",
-    "/style.css": "/style.css",
-    "/style.css.map": "/style.css.map"
+    "/style.css.map": "/style.css.map",
+    "/admin.css.map": "/admin.css.map"
 }
