@@ -23,10 +23,6 @@ let mix = require("laravel-mix"),
   Ftp = require("ftp"),
   remote = new Ftp();
 
-remote.on("ready", () => {
-  watchFiles();
-});
-
 const watchFiles = () => {
   fs.watch("./", { recursive: true }, (event, filename) => {
     if (!ignoreFile(filename)) {
@@ -94,7 +90,13 @@ const deleteFile = (remote, filename) => {
   });
 };
 
-remote.connect(ftpConfig);
+if (ftpConfig.host.length) {
+  remote.on("ready", () => {
+    watchFiles();
+  });
+
+  remote.connect(ftpConfig);
+}
 
 mix.autoload({
   jquery: ["$", "window.jQuery", "jQuery"]
